@@ -6,7 +6,7 @@
 #    By: hugur <marvin@42lausanne.ch>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/24 12:18:49 by hugur             #+#    #+#              #
-#    Updated: 2022/10/25 12:27:19 by hugur            ###   ########.fr        #
+#    Updated: 2022/10/25 16:23:27 by hugur            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = libft.a
 
 HDRS = libft.h
 
-SRC = ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_strlen.c
+SRC = ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_strlen.c ft_toupper.c ft_tolower.c
 
 OBJ = $(SRC:.c=.o)
 

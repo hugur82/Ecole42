@@ -6,11 +6,11 @@
 /*   By: hugur <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 19:47:35 by hugur             #+#    #+#             */
-/*   Updated: 2022/10/24 19:56:31 by hugur            ###   ########.fr       */
+/*   Updated: 2022/10/25 16:27:54 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+int	ft_strlen(const char *str)
 {
 	int	i;
 
