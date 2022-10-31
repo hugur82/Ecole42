@@ -6,7 +6,7 @@
 /*   By: hugur <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 11:19:11 by hugur             #+#    #+#             */
-/*   Updated: 2022/10/27 12:22:11 by hugur            ###   ########.fr       */
+/*   Updated: 2022/10/31 21:47:07 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,32 @@
 #include "libft.h"
 
 
-long unsigned ft_strlcat(char *dst, const char *src, long unsigned n)
+size_t  ft_strlcat(char *dst, const char *src, size_t size)
 {
-    long unsigned   i;
-    long unsigned   j;
-    
-    i = 0;
-    while (dst[i] != 0)
-        i++;
-    j = 0;
-    while (src[j] && n > i + 0)
+    size_t  lsize;
+    size_t  dsize;
+
+    lsize = 0;
+    dsize = strlen(dst);
+    while (*dst && size > 0 && size--)
     {
-        dst[i] = src[j];
-        i++;
-        j++;
-        n--;
+        dst++;
+        lsize++;
     }
-    dst[i] = '\0';
-    
-    return(i+n);
+    while (*src && size > 1 && size--)
+        *dst++ = *src++;
+    if (size == 1)
+        *dst = '\0';
+    return (dsize + lsize);
 }
 
-
+/* 
 int main(void)
 {
     char dst[100]="123456";
     char src[]="789012";
 
-    printf("valeur retourné par la fonction %lu, \nvaleur de dst = %s\n", strlcat(dst,src,7), dst);
-    printf("valeur retourné par la fonction %lu, \nvaleur de dst = %s\n", ft_strlcat(dst,src,7), dst);
+    printf("valeur retourné par la fonction strlcat    = %lu, \nvaleur de dst = %s\n", strlcat(dst,src,7), dst);
+    printf("valeur retourné par la fonction ft_strlcat = %d, \nvaleur de dst = %s\n", ft_strlcat(dst,src,7), dst);
    
- }
+ } */

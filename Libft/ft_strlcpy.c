@@ -6,20 +6,18 @@
 /*   By: hugur <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 13:34:50 by hugur             #+#    #+#             */
-/*   Updated: 2022/10/27 09:40:05 by hugur            ###   ########.fr       */
+/*   Updated: 2022/10/31 19:34:29 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int ft_strlcpy(char *dst, char *src, int dstsize)
 {
     int i;
-    int j;
-
-    j = 0;
-    while(src[j])
-        j++;
-    if (dstsize <= 0)
-        return (j);
+       
+    if (dstsize == 0)
+        return (ft_strlen(src));
     i = 0;    
     while ((src[i] != 0) && (i < dstsize - 1))
     {
@@ -27,7 +25,7 @@ int ft_strlcpy(char *dst, char *src, int dstsize)
         i++; 
     }
     dst[i] = '\0';
-    return (j);
+    return (i);
 }
 /*
 int main(void)
