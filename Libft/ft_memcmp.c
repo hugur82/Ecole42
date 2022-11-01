@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hugur <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/01 21:45:14 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/01 22:15:43 by hugur            ###   ########.fr       */
+/*   Created: 2022/11/01 21:13:45 by hugur             #+#    #+#             */
+/*   Updated: 2022/11/01 21:40:47 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *ft_strnstr(const char *big, const char *little, size_t len)
+#include "libft.h"
+
+int ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-    size_t i;
-    size_t size_little;
-    int notempty;
-    
-    notempty = 0;
-    size_little = ft_strlen(little);
+    size_t  i;
+    unsigned char *p1;
+    unsigned char *p2;
+
+    p1 = (unsigned char*)s1;
+    p2 = (unsigned char*)s2;
     i = 0;
-    while (i < size_little && !notempty)
+    while(i < n)
     {
-        if (ft_isblank(little[i]))
-            notempty = 1;
+        if  (p1[i] != p2[i])
+            return(p1[i] - p2[i]);
         i++;
     }
-    if (!notempty)
-        return (big);
-    
-    
+    return(0);
 }
