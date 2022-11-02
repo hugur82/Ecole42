@@ -1,38 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_isempty.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hugur <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/27 11:19:11 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/02 19:47:11 by hugur            ###   ########.fr       */
+/*   Created: 2022/11/02 11:35:16 by hugur             #+#    #+#             */
+/*   Updated: 2022/11/02 12:04:06 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
-
-size_t    ft_strlcat(char *dest, const char *src, size_t size)
+size_t ft_isempty(char *str)
 {
-    size_t i;
-    size_t j;
-    
+    size_t  id;
 
-    i = 0;
-    j = ft_strlen(dest);;
-    
-    if (size == 0)
-        return (ft_strlen(src));
-    if (j > size - 1)
-        return (size + ft_strlen(src));
-    while (src[i] && i + j < size - 1)
+id = 0;
+    while(str[id])
     {
-        dest[i + j] = src[i];
-        i++;
+        if (!(str[id] == '\t' || str[id] == '\n' || str[id] == '\v'
+		|| str[id] == '\f' || str[id] == '\r' || str[id] == ' '
+		|| str[id] == '\a'))
+            return(0);
+		id++;
     }
-    dest[i + j] = 0;
-    return (j + ft_strlen(src));
+    return(1);
 }
-

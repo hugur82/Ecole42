@@ -6,7 +6,7 @@
 /*   By: hugur <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 11:20:07 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/01 12:56:12 by hugur            ###   ########.fr       */
+/*   Updated: 2022/11/02 17:56:50 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ void	ft_handleprefix(char *str, int *idx, int *neg)
 
 	id = *idx;
 	while (str[id] == '\t' || str[id] == '\n' || str[id] == '\v'
-		|| str[id] == '\f' || str[id] == '\r' || str[id] == ' '
-		|| str[id] == '\a')
+		|| str[id] == '\f' || str[id] == '\r' || str[id] == ' ')
 		id++;
 	if ((str[id] == '-') || (str[id] == '+'))
 	{
@@ -38,7 +37,8 @@ int	ft_atoi(char *str)
 	i = 0;
 	results = 0;
 	ft_handleprefix(str, &i, &pos_neg);
-	if ((str[i] == '+') || (str[i] == '-'))
+
+	if ((str[i] == '+') || (str[i] == '-') )
 		return (0);
 	while (str[i] == '0')
 		i++;

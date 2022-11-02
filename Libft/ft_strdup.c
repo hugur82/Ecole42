@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hugur <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/27 11:19:11 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/02 19:47:11 by hugur            ###   ########.fr       */
+/*   Created: 2022/11/02 15:56:39 by hugur             #+#    #+#             */
+/*   Updated: 2022/11/02 17:31:20 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "libft.h"
 
-
-size_t    ft_strlcat(char *dest, const char *src, size_t size)
+char *ft_strdup(const char *s1)
 {
-    size_t i;
-    size_t j;
-    
+    char *ptr;
+    size_t  i;
 
-    i = 0;
-    j = ft_strlen(dest);;
-    
-    if (size == 0)
-        return (ft_strlen(src));
-    if (j > size - 1)
-        return (size + ft_strlen(src));
-    while (src[i] && i + j < size - 1)
-    {
-        dest[i + j] = src[i];
-        i++;
-    }
-    dest[i + j] = 0;
-    return (j + ft_strlen(src));
+    ptr = malloc(sizeof(char) * ft_strlen(s1) + 1);
+    if (!(ptr))
+        return (NULL);
+        i = 0;
+    while (s1[i])
+        {
+            ptr[i] = s1[i];
+            i++;
+        }
+        ptr[i] = '\0';
+    return(ptr);
 }
-

@@ -6,13 +6,15 @@
 /*   By: hugur <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 19:47:35 by hugur             #+#    #+#             */
-/*   Updated: 2022/10/26 15:17:20 by hugur            ###   ########.fr       */
+/*   Updated: 2022/11/02 12:03:24 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(const char *str)
+#include "libft.h"
+
+size_t	ft_strlen(const char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (*str)

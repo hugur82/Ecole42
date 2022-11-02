@@ -6,10 +6,12 @@
 /*   By: hugur <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 15:04:31 by hugur             #+#    #+#             */
-/*   Updated: 2022/10/27 15:05:01 by hugur            ###   ########.fr       */
+/*   Updated: 2022/11/02 19:14:34 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int main(void){
-    
+ printf("taille size_t  %lu:", sizeof(size_t));
 }
