@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hugur <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/01 21:45:14 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/02 11:24:21 by hugur            ###   ########.fr       */
+/*   Created: 2022/10/31 22:07:47 by hugur             #+#    #+#             */
+/*   Updated: 2022/11/01 10:58:51 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include
+#include "libft.h"
 
-char *ft_strnstr(const char *big, const char *little, size_t len)
+char	*ft_strrchr(const char *s, int c)
 {
-    size_t i;
-    size_t size_little;
-    int notempty;
-    
+	int	i;
 
-    int ft_isempty()
-    notempty = 0;
-    size_little = ft_strlen(little);
-    i = 0;
-    while (i < size_little && !notempty)
-    {
-        if (ft_isblank(little[i]))
-            notempty = 1;
-        i++;
-    }
-    if (!notempty)
-        return (big);
-    
-    
+	i = ft_strlen(s);
+	while (i > 0 && s[i] != (char)c)
+		i--;
+	if (s[i] == (char)c)
+		return ((char *)&s[i]);
+	return (0);
 }
