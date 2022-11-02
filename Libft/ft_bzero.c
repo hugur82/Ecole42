@@ -6,18 +6,20 @@
 /*   By: hugur <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 13:56:12 by hugur             #+#    #+#             */
-/*   Updated: 2022/10/27 14:35:18 by hugur            ###   ########.fr       */
+/*   Updated: 2022/11/01 15:15:31 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_bzero(void *s, int n)
-{
-       unsigned char *p;
+#include "libft.h"
 
-        p = s; 
-        while(n)
-        {
-            *p++ = 0;
-            n--;
-        }
+void	ft_bzero(void *s, size_t n)
+{
+	unsigned char	*p;
+
+	p = s;
+	while (n)
+	{
+		*p++ = 0;
+		n--;
+	}
 }

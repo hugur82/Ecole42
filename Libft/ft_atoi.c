@@ -6,38 +6,51 @@
 /*   By: hugur <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 11:20:07 by hugur             #+#    #+#             */
-/*   Updated: 2022/10/26 12:50:25 by hugur            ###   ########.fr       */
+/*   Updated: 2022/11/01 12:56:12 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_atoi(const char *str)
+void	ft_handleprefix(char *str, int *idx, int *neg)
+{
+	int	id;
+
+	id = *idx;
+	while (str[id] == '\t' || str[id] == '\n' || str[id] == '\v'
+		|| str[id] == '\f' || str[id] == '\r' || str[id] == ' '
+		|| str[id] == '\a')
+		id++;
+	if ((str[id] == '-') || (str[id] == '+'))
+	{
+		if (str[id] == '-')
+			*neg = -1;
+		id++;
+	}
+	*idx = id;
+}
+
+int	ft_atoi(char *str)
 {
 	int	i;
-	int	posNeg;
-	int results;
+	int	pos_neg;
+	int	results;
 
-	posNeg = 1;
+	pos_neg = 1;
 	i = 0;
 	results = 0;
-	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
-		|| str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
-	{
-		i++;
-	}
-	if((str[i] == '-') || (str[i] == '+'))
-	{
-		if (str[i] == '-')
-			posNeg = -1;
-		i++;
-	}
-	if((str[i] == '+') || (str[i] == '-'))
+	ft_handleprefix(str, &i, &pos_neg);
+	if ((str[i] == '+') || (str[i] == '-'))
 		return (0);
-	while(str[i] == '0')
+	while (str[i] == '0')
 		i++;
-	while((str[i] != 0) && (str[i] >= '0' && str[i] <= '9'))
+	while ((str[i] != 0) && (str[i] >= '0' && str[i] <= '9'))
 	{
-		results = results *10 + (str[i] - 48);
+		results = results * 10 + (str[i] - 48);
 		i++;
 	}
-	return (results * posNeg);
+	return (results * pos_neg);
 }
+/* 
+int	main(void)
+{
+	ft_atoi("-4886");
+} */
