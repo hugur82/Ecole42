@@ -3,18 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isblank.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hugur <marvin@42lausanne.ch>               +#+  +:+       +#+        */
+/*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 21:52:54 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/01 21:56:41 by hugur            ###   ########.fr       */
+/*   Updated: 2022/11/03 17:22:19 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_isblank(int c)
+size_t ft_isblank(size_t c)
 {
-    if ((char)c == ' ' || (char)c == '\t')
+    if ((char)c == ' ' || (char)c == '\t' || (char)c == '\n' 
+        || (char)c == '\v' || (char)c == '\f' || (char)c == '\r'
+        || (char)c == '\a')
         return(1);
     return(0);
 }

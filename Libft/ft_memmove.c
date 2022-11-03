@@ -6,7 +6,7 @@
 /*   By: hugur <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 16:58:34 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/01 10:22:31 by hugur            ###   ########.fr       */
+/*   Updated: 2022/11/03 15:48:56 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,13 @@ void	*ft_memmove(void *dest, const void *src, size_t count)
 			i++;
 		}
 	}
-	while (i < count)
+	else
 	{
+		while (i < count)
+		{
 			d[i] = s[i];
 			i++;
+		}
 	}
 	return (dest);
 }
