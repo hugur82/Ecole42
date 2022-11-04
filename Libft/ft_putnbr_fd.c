@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/01 21:13:45 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/04 11:15:26 by hugur            ###   ########.fr       */
+/*   Created: 2022/11/04 12:33:56 by hugur             #+#    #+#             */
+/*   Updated: 2022/11/04 13:18:28 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t			i;
-	unsigned char	*p1;
-	unsigned char	*p2;
-
-	p1 = (unsigned char *)s1;
-	p2 = (unsigned char *)s2;
-	i = 0;
-	while (i < n)
+	if (n == -2147483648)
 	{
-		if (p1[i] != p2[i])
-			return (p1[i] - p2[i]);
-		i++;
+		ft_putchar_fd('-', fd);
+		ft_putchar_fd('2', fd);
+		n = 147483648;
 	}
-	return (0);
+	if (n >= 0 && n <= 9)
+	{
+		ft_putchar_fd(n + '0', fd);
+	}
+	else if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		n *= -1;
+		ft_putnbr_fd(n, fd);
+	}
+	else
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
+	}
 }

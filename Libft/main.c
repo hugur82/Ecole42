@@ -6,7 +6,7 @@
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 15:04:31 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/04 00:06:32 by hugur            ###   ########.fr       */
+/*   Updated: 2022/11/04 17:08:33 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int main(void){
 
-printf("test bibliotheque %zu", ft_strlen("salut"));
+printf("test bibliotheque %s \n", ft_strtrim("salut","sa"));
 return (0);
 }

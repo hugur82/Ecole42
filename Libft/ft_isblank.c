@@ -6,17 +6,17 @@
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 21:52:54 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/04 00:12:31 by hugur            ###   ########.fr       */
+/*   Updated: 2022/11/04 11:09:04 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t ft_isblank(size_t c)
+size_t	ft_isblank( size_t c)
 {
-    if ((char)c == ' ' || (char)c == '\t' || (char)c == '\n' 
-        || (char)c == '\v' || (char)c == '\f' || (char)c == '\r'
-        || (char)c == '\a')
-        return(1);
-    return(0);
+	if ((char)c == ' ' || (char)c == '\t' || (char)c == '\n'
+		|| (char)c == '\v' || (char)c == '\f' || (char)c == '\r'
+		|| (char)c == '\a')
+		return (1);
+	return (0);
 }

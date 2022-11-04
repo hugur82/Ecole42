@@ -6,75 +6,62 @@
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 17:12:37 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/03 18:41:40 by hugur            ###   ########.fr       */
+/*   Updated: 2022/11/04 19:22:02 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 
-size_t ft_countmalloc(char const *s1, char const *set)
+size_t	ft_start( const char *s1,const char *set)
 {
-	size_t  i;
-	size_t  j;
-	size_t  issame;
-	size_t	count;
+	size_t	i;
+	size_t	len;
 
-	count = 0;
+	len = ft_strlen(s1);
 	i = 0;
-	while(s1[i])
+	while (i < len)
 	{
-		j = 0;
-		issame = 0;
-		while((s1[i + j] == set[j]) && set[j])
-			{
-				if (set[j + 1] == 0)
-					issame = 1;
-				j++;
-			}
-		if (issame == 1)
-			count += 1;
+		if (ft_strchr(set, s1[i]) == 0)
+			break;
 		i++;
 	}
-	return (count * ft_strlen(set));
+	return (i);
 }
 
-char *ft_replace(char const *s1, char const *set, char *str)
+size_t	ft_end(char	const *s1, const char *set)
 {
-	size_t  i;
-	size_t  j;
-	size_t  issame;
-		
+	size_t	i;
+	size_t len;
+
+	len = ft_strlen(s1);
 	i = 0;
-	while(s1[i])
+	while(i <len)
 	{
-		j = 0;
-		issame = 0;
-		while((s1[i + j] == set[j]) && set[j])
-			{
-				if (set[j + 1] == 0)
-					issame = 1;
-				j++;
-			}
-		if (issame == 1)
-			
+		if(ft_strchr(set, s1[len - i - 1]) == 0)
+			break;
 		i++;
 	}
-
+	return (len - i);
 }
 
-char *ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	char *str;
+	char	*str;
+	size_t		begin;
+	size_t		finish;
 
-	str = malloc(sizeof(char) * ft_countmalloc(s1, set) + 1);
+	if (s1 == NULL)
+		return (NULL);
+	if (set == NULL)
+		return(ft_strdup(s1));
+	begin = ft_start(s1, set);
+	finish = ft_end(s1, set);
+	if (begin >= finish)
+		return(ft_strdup(""));
+	str = malloc(sizeof(char) * (finish - begin) + 1);
 	if (!(str))
 		return (NULL);
-	str = ft_replace(s1, set, str);
-	
-
-
-	
-
-
+	ft_strlcpy(str, s1 + begin, finish - begin + 1);
+	return(str);
 }

@@ -6,7 +6,7 @@
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 11:20:07 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/03 23:50:10 by hugur            ###   ########.fr       */
+/*   Updated: 2022/11/04 11:03:26 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ int	ft_atoi(char *str)
 	i = 0;
 	results = 0;
 	ft_handleprefix(str, &i, &pos_neg);
-
-	if ((str[i] == '+') || (str[i] == '-') )
+	if ((str[i] == '+') || (str[i] == '-'))
 		return (0);
 	while (str[i] == '0')
 		i++;
