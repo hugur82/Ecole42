@@ -12,8 +12,19 @@
 
 #include "libft.h"
 
-int main(void){
-
-printf("test bibliotheque %s \n", ft_strtrim("salut","sa"));
-return (0);
+int main(void)
+{
+    printf("\n");
+    printf("Resultat de mon Main:\n");
+    ft_itoa(-623);
+    ft_itoa(2147483647);
+    ft_itoa(156);
+    ft_itoa(-5859);
+    ft_itoa(-110);
+    ft_itoa(1011113);
+    ft_itoa(15984130);
+    ft_itoa(-2147483648);
+    ft_itoa(10);
+    printf("\n");
+    return (0);
 }

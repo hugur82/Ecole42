@@ -49,7 +49,7 @@ fclean: clean
 re: fclean go
 
 go: all
-	gcc $(FLAGS) $(NAME) -o $(NAME) main.c && ./$(NAME) \
+	gcc $(FLAGS) -o test.out  main.c $(NAME) && ./test.out \
 	# output:\
 	
 	make fclean

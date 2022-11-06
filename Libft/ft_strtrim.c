@@ -12,7 +12,6 @@
 
 #include "libft.h"
 
-
 size_t	ft_start( const char *s1,const char *set)
 {
 	size_t	i;
