@@ -6,7 +6,7 @@
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 15:04:31 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/04 17:08:33 by hugur            ###   ########.fr       */
+/*   Updated: 2022/11/06 17:25:18 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,9 @@ int main(void)
 {
     printf("\n");
     printf("Resultat de mon Main:\n");
-    ft_itoa(-623);
-    ft_itoa(2147483647);
-    ft_itoa(156);
-    ft_itoa(-5859);
-    ft_itoa(-110);
-    ft_itoa(1011113);
-    ft_itoa(15984130);
-    ft_itoa(-2147483648);
-    ft_itoa(10);
+    ft_split("Salut mon al gars ça vala bien" ,'a');
+    ft_split("! Salut \t mon gars ça va bien" ,' ');
+    ft_split("Salut mon gars \t \n ça va bien" ,'\t');
     printf("\n");
     return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:37:58 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/04 16:09:39 by hugur            ###   ########.fr       */
+/*   Updated: 2022/11/06 16:58:04 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void ft_putchar_fd(char c, int fd);
 void ft_putendl_fd(char *s, int fd);
 void ft_putnbr_fd(int n, int fd);
 void ft_putstr_fd(char *s, int fd);
+char **ft_split(char const *s, char c);
 char *ft_strchr(const char *s, int c);
 char *ft_strdup(const char *s1);
 char *ft_strjoin(char const *s1, char const *s2);
