@@ -5,67 +5,56 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/04 13:19:26 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/04 17:48:50 by hugur            ###   ########.fr       */
+/*   Created: 2022/11/08 18:12:40 by hugur             #+#    #+#             */
+/*   Updated: 2022/11/08 21:32:33 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	findlen(int i)
+int countlen(long int li)
 {
-	int	count;
+	int count;
 
-	count = 1;
-	if (i < 0)
+	count = 0;
+	if (li <= 0)
 	{
-		count++;
-		i *= -1;
+		count = 1;
+		li *= -1;
 	}
-	while (i >= 10)
+	while(li != 0 )
 	{
 		count++;
-		i /= 10;
+		li /= 10;
 	}
 	return (count);
 }
 
 char	*ft_itoa(int n)
 {
-	int	len;
-	char	*str;
-	int	i;
-	int	intmin;
+	int  len;
+	long int    li ;
+	char    *str;
+	int isneg;
 
-	intmin = 0;
-	if (n == -2147483648)
-		len = 11;
-	else
-		len = findlen(n);
+	isneg = 0;
+	li = (long int)n;
+	len = countlen(li);
 	str = malloc(sizeof(char) * len + 1);
-
 	if (!str)
 		return (NULL);
-	i = 0;
-	if (n < 0)
-	{
-		if (n == -2147483648)
-		{
-			str[len - 1] = '8';
-			n = -214748364;
-			intmin = 1;
-		}
-		n *= -1;
-		str[i] = '-';
-	}
-	while(len - i > 0)
-	{
-		if (str[len - i - 1 - intmin ] == '-')
-			break;
-		str[len -i -1 - intmin] = (n % 10) + '0'; 
-		n /= 10;
-		i++;
-	}
 	str[len] = '\0';
-	return(str);
+	if (li < 0)
+	{
+		isneg = 1;
+		li *= -1;
+		str[0] = '-';
+	}
+	while ((len >= 0 && !isneg) || (isneg && len > 1))
+	{ 
+		str[len - 1] = (li % 10) + '0';
+		li /= 10;
+		len--;
+	}
+	return (str);
 }
