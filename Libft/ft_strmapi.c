@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/27 15:04:31 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/08 12:25:28 by hugur            ###   ########.fr       */
+/*   Created: 2022/11/08 14:00:25 by hugur             #+#    #+#             */
+/*   Updated: 2022/11/08 14:12:12 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int main(void)
+char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-    int i;
-    char **str;
-      
-    i=0;
-      str = ft_split("Salut mon al gars ça vala bien" ,'l');
-    //ft_split("! Salut \t mon gars ça va bien" ,' ');
-    while (str[i])
-        {
-            printf("affichage mot %s \n", str[i]);
-            i++;
-        }
-    //ft_split("Salut mon gars \t \n ça va bien" ,'\t');
-    printf("\n");
-    return (0);
+	int len;
+	int i;
+	char *str;
+
+	i=0;
+	len = ft_strlen(s);
+	str = malloc(sizeof(char)*(len +1));
+	if(!s || !f || !str)
+		return	(0);
+	while (i < len)
+	{
+		str[i] = f(i, s[i]);
+		i++;
+	}
+	str[i]= 0;
+	return (str);
 }
