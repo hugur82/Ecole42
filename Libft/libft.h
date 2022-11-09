@@ -6,7 +6,7 @@
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:37:58 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/08 22:19:40 by hugur            ###   ########.fr       */
+/*   Updated: 2022/11/09 23:16:01 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <ctype.h>
 # include <stdlib.h>
 # include <unistd.h>
+
 typedef struct      s_list
 {
     void            *content;
@@ -33,7 +34,10 @@ int	ft_isdigit(int c);
 size_t ft_isempty(char *str);
 int	ft_isprint(int c);
 char *ft_itoa(int n);
+void ft_lstadd_front(t_list **lst, t_list *new);
+t_list *ft_lstlast(t_list *lst);
 t_list *ft_lstnew(void *content);
+int ft_lstsize(t_list *lst);
 void *ft_memchr(const void *s, int c, size_t n);
 int ft_memcmp(const void *s1, const void *s2, size_t n);
 void *ft_memcpy(void *dst, const void *src, int n);

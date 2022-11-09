@@ -6,7 +6,7 @@
 #    By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/24 12:18:49 by hugur             #+#    #+#              #
-#    Updated: 2022/11/08 22:27:35 by hugur            ###   ########.fr        #
+#    Updated: 2022/11/09 23:16:01 by hugur            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,11 +22,13 @@ ft_memmove.c ft_memset.c ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putst
 ft_split.c ft_strchr.c ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c ft_strlen.c\
 ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c\
 
-BONUS = ft_lstnew.c
+BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstlast.c ft_lstsize.c
 
 # $(wildcard *.c)
 
 OBJ = $(SRC:.c=.o)
+
+OBJ_BONUS = $(BONUS:.c=.o)
 
 AR = ar rc
 
@@ -43,18 +45,19 @@ $(NAME):$(OBJ)
 all: $(NAME)
 
 clean:
-	$(RM) *.o 
+	$(RM) $(OBJ) $(OBJ_BONUS)
 
 fclean: clean
 	$(RM) $(NAME) *.out
+
+bonus:	$(OBJ) $(OBJ_BONUS)
+	$(AR) $(NAME) $(OBJ) $(OBJ_BONUS)
 
 re: fclean all
 
 go: all
 	gcc $(FLAGS) -o test.out  main.c $(NAME) && ./test.out \
 	# output:\
-	
-	make fclean
 
 .PHONY:
-	all clean fclean re
+	all clean fclean re bonus
