@@ -6,13 +6,13 @@
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 18:12:40 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/09 20:21:48 by hugur            ###   ########.fr       */
+/*   Updated: 2022/11/10 18:43:19 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int countlen(long int li)
+int	countlen(long int li)
 {
 	int count;
 

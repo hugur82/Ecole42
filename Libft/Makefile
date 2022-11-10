@@ -6,7 +6,7 @@
 #    By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/24 12:18:49 by hugur             #+#    #+#              #
-#    Updated: 2022/11/09 23:32:52 by hugur            ###   ########.fr        #
+#    Updated: 2022/11/10 19:52:00 by hugur            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ ft_memmove.c ft_memset.c ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putst
 ft_split.c ft_strchr.c ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c ft_strlen.c\
 ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c\
 
-BONUS = ft_lstnew.c ft_lstadd_back.c ft_lstadd_front.c ft_lstlast.c ft_lstsize.c
+BONUS = ft_lstnew_bonus.c ft_lstadd_back_bonus.c ft_lstclear_bonus.c ft_lstdelone_bonus.c\
+ft_lstiter_bonus.c ft_lstadd_front_bonus.c ft_lstlast_bonus.c ft_lstsize_bonus.c
 
 # $(wildcard *.c)
 
@@ -50,8 +51,8 @@ clean:
 fclean: clean
 	$(RM) $(NAME) *.out
 
-bonus:	$(OBJ) $(OBJ_BONUS)
-	$(AR) $(NAME) $(OBJ) $(OBJ_BONUS)
+bonus:	$(OBJ_BONUS)
+	$(AR) $(NAME)  $(OBJ_BONUS)
 
 re: fclean all
 
