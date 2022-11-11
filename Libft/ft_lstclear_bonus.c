@@ -6,18 +6,18 @@
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 19:21:51 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/10 19:48:57 by hugur            ###   ########.fr       */
+/*   Updated: 2022/11/11 00:49:20 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list  *mem;
+	t_list	*mem;
 	t_list	*start;
-	
-	if(lst)
+
+	if (lst)
 	{
 		start = *lst;
 		while (start)
@@ -27,6 +27,6 @@ void ft_lstclear(t_list **lst, void (*del)(void *))
 			free(start);
 			start = mem;
 		}
-		*lst = NULL;
 	}
+	*lst = NULL;
 }

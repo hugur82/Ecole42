@@ -6,13 +6,13 @@
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 19:05:17 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/10 19:13:53 by hugur            ###   ########.fr       */
+/*   Updated: 2022/11/11 00:46:45 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstdelone(t_list *lst, void (*del)(void *))
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 	if (lst)
 	{
