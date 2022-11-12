@@ -6,7 +6,7 @@
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 12:33:17 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/11 00:34:40 by hugur            ###   ########.fr       */
+/*   Updated: 2022/11/12 14:17:06 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	*splitword(const char *str, int start, int finish)
 char	**ft_split(char const *s, char c)
 {
 	char	**split;
-	int		i;
+	size_t	i;
 	int		idx;
 	int		j;
 

@@ -6,7 +6,7 @@
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 19:21:51 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/11 00:49:20 by hugur            ###   ########.fr       */
+/*   Updated: 2022/11/12 14:30:11 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 			free(start);
 			start = mem;
 		}
-	}
 	*lst = NULL;
+	}
 }
