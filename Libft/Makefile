@@ -6,7 +6,7 @@
 #    By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/24 12:18:49 by hugur             #+#    #+#              #
-#    Updated: 2022/11/12 14:10:57 by hugur            ###   ########.fr        #
+#    Updated: 2022/11/12 14:46:37 by hugur            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,6 @@ ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c ft_
 
 BONUS = ft_lstnew_bonus.c ft_lstadd_back_bonus.c ft_lstclear_bonus.c ft_lstdelone_bonus.c\
 ft_lstiter_bonus.c ft_lstadd_front_bonus.c ft_lstlast_bonus.c ft_lstsize_bonus.c\
-
-# $(wildcard *.c)
 
 OBJ = $(SRC:.c=.o)
 
@@ -49,8 +47,8 @@ clean:
 	$(RM) $(OBJ) $(OBJ_BONUS)
 
 fclean: clean
-	$(RM) $(NAME) *.out
-
+	$(RM) $(NAME)
+	
 bonus:	$(OBJ_BONUS)
 	$(AR) $(NAME) $^
 
