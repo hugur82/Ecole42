@@ -1,45 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_handlestringinteger.c                           :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 21:31:36 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/16 20:49:23 by hugur            ###   ########.fr       */
+/*   Created: 2022/11/16 23:03:31 by hugur             #+#    #+#             */
+/*   Updated: 2022/11/17 16:39:12 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
+#include "libft/libft.h"
+#include "includes/libftprintf.h"
 
-int	ft_printchar(int c)
+int main(void)
 {
-	write (1, &c, 1);
-	return (1);
-}
+	int len;
 
-int	ft_printstring(const char *str)
-{
-	int	i;
+	len = ft_printf("test string: %s\ntest chaine de caractere: %c\ntest entier : %d \n","hello" ,'A',15005);
+	len += printf("test adress Pointer: %p\n test adresse en entier %li" ,&len, &len);
 
-	i = 0;
-	while(str[i])
-	{
-		ft_printchar(str[i]);
-		i++;
-	}
-	return (i);
-}
+	ft_printf("\n len dans main == %i !\n",len);
+	
 
-int	ft_printint(int	nb)
-{
-	char	*str;
-	int		strlen;
-
-	str = ft_itoa(nb);
-	//printf("test str %s",str);
-	strlen = ft_printstring(str);
-	free(str);
-
-	return (strlen);
+	return (0);
+	
 }

@@ -6,4 +6,6 @@
 int	ft_printchar(int c);
 int	ft_printstring(const char *str);
 int	ft_printint(int	nb);
+int	ft_printf(const char *str,...);
+int ft_format(va_list ap, const char c);
 #endif

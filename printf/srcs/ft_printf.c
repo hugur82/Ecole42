@@ -6,52 +6,13 @@
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 13:34:39 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/15 21:44:37 by hugur            ###   ########.fr       */
+/*   Updated: 2022/11/17 16:33:01 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdarg.h>
-#include <unistd.h>
 #include "../libft/libft.h"
 #include "../includes/libftprintf.h"
 
-/* int	ft_printchar(int c)
-{
-	write (1, &c, 1);
-	return (1);
-}
-
-int	ft_printstring(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while(str[i])
-	{
-		ft_printchar(str[i]);
-		i++;
-	}
-	return (i);
-}
-
-int	ft_printint(int	nb)
-{
-	char	*str;
-	int		strlen;
-
-	str = ft_itoa(nb);
-	printf("test str %s",str);
-	strlen = ft_printstring(str);
-	free(str);
-
-	return (strlen);
-} */
-
-/* int	ft_printpointer( char *p){
-	
-	return(ft_printstring(p));
-} */
 /*--------------------------------------*/
 /* char *ft_uitoa(unsigned int nb)
 {
@@ -73,7 +34,7 @@ int	ft_unsignedint(unsigned int nb)
 		str = uitoa(nb);
 	}
 } */
-/*--------------------------------------------*/
+/*--------------------------------------------*/ 
 int ft_format(va_list ap, const char c)
 {
 	int	length;
@@ -83,7 +44,6 @@ int ft_format(va_list ap, const char c)
 	{
 		case 'c':
 			length += ft_printchar(va_arg(ap,int));
-			//printf("ceci es un char %s\n",s);
 			break;
 		case 's':
 			length += ft_printstring(va_arg(ap, const char *));				
@@ -137,17 +97,4 @@ int	ft_printf(const char *str,...)
 		i++;
 	}
 	return(strcount);
-}
-
-int main(void)
-{
-	int len;
-
-	len = ft_printf("test string: %s\ntest chaine de caractere: %c\ntest entier : %d \n","hello" ,'A',15005);
-
-	ft_printf("\n len dans main == %p !\n","&len");
-	
-
-	return (0);
-	
 }
