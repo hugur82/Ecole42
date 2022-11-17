@@ -6,7 +6,7 @@
 #    By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/12 21:54:34 by hugur             #+#    #+#              #
-#    Updated: 2022/11/17 16:03:36 by hugur            ###   ########.fr        #
+#    Updated: 2022/11/17 22:30:59 by hugur            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ NAME = libftprintf.a
 
 NAMELFT = libft.a
 
-SRC = ft_printf ft_handlestringinteger
+SRC = ft_printf ft_handlestringinteger ft_treatunsigned
 
 SRCS = $(addprefix ${DIRSRC}, $(addsuffix .c , ${SRC}))
 

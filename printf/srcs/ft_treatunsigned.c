@@ -1,48 +1,59 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_handlestringinteger.c                           :+:      :+:    :+:   */
+/*   ft_treatunsigned.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 21:31:36 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/17 22:06:18 by hugur            ###   ########.fr       */
+/*   Created: 2022/11/17 21:57:45 by hugur             #+#    #+#             */
+/*   Updated: 2022/11/17 22:47:27 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include "../includes/ft_printf.h"
 
-int	ft_printchar(int c)
+int		ft_uitoalen(unsigned int nb)
 {
-	write (1, &c, 1);
-	return (1);
-}
+	int		mem;
 
-int	ft_printstring(const char *str)
-{
-	int	i;
-
-	if (!str)
-		return (ft_printstring("(null)"));
-	i = 0;
-	while(str[i])
+	if (nb == 0)
+		mem = 1;
+	else
 	{
-		ft_printchar(str[i]);
-		i++;
+		while (nb > 0)
+		{
+			mem++;
+			nb /= 10;
+		}
 	}
-	return (i);
+	return (mem);
 }
 
-int	ft_printint(int	nb)
+char	*ft_uitoa(unsigned int	nb)
+{
+	char			*s;
+	int				len;
+
+	len = ft_uitoalen(nb);
+	printf("len uitoa = %d", len);
+	s = malloc(sizeof(char) * len + 1);
+	if (!s)
+		return(NULL);
+	while (len-- > 0)
+	{
+		s[len] = nb % 10;
+		nb /= 10;
+	}
+	return(s);
+}
+
+int		ft_treatunsigned(unsigned int	ui)
 {
 	char	*str;
-	int		strlen;
+	
+	str = ft_uitoa(ui);
 
-	str = ft_itoa(nb);
-	//printf("test str %s",str);
-	strlen = ft_printstring(str);
 	free(str);
-
-	return (strlen);
+	return(0);
 }

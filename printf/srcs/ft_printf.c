@@ -6,73 +6,41 @@
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 13:34:39 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/17 16:33:01 by hugur            ###   ########.fr       */
+/*   Updated: 2022/11/17 22:06:18 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
-#include "../includes/libftprintf.h"
+#include "../includes/ft_printf.h"
 
-/*--------------------------------------*/
-/* char *ft_uitoa(unsigned int nb)
-{
-	char	*str;
-
-	str = malloc();
-}
-
-int	ft_unsignedint(unsigned int nb)
-{
-	char	*str;
-	
-	if (nb == 0)
-	{
-		ft_printchar(0);
-	}
-	else
-	{
-		str = uitoa(nb);
-	}
-} */
-/*--------------------------------------------*/ 
 int ft_format(va_list ap, const char c)
 {
 	int	length;
 
 	length = 0;
-	switch (c)
-	{
-		case 'c':
-			length += ft_printchar(va_arg(ap,int));
-			break;
-		case 's':
+	if (c == 'c')
+		length += ft_printchar(va_arg(ap,int));
+	else if (c == 's')
 			length += ft_printstring(va_arg(ap, const char *));				
-			break;
-		case 'd':
-			length += ft_printint(va_arg(ap, int));
-			break;
-		case 'i'://entier base 10
-			length += ft_printint(va_arg(ap, int));
-			break;
-		case 'p':
-			//length += ft_printpointer(va_arg(ap, char *));
-			//ft_printpointer;//dois afficher un hexa
-			break;
-		case 'u':
-			//length += ft_unsignedint(va_arg(ap, unsigned int));
-			break;
-		case 'x':
+	else if (c == 'd' || c == 'i')
+		length += ft_printint(va_arg(ap, int));
+	else if (c == 'p')
+		printf("afficher un pointeur");
+		//length += ft_printpointer(va_arg(ap, char *));
+		//ft_printpointer;//dois afficher un hexa
+	else if (c == 'u')
+		length += ft_treatunsigned(va_arg(ap, unsigned int));
+		
+		//length += ft_unsignedint(va_arg(ap, unsigned int));
+	else if (c == 'x')
+		printf("afficher un chiffre hexadecimal minuscule");
 			//ft_printchar;
-			break;
-		case 'X':
-			//ft_printchar;
-			break;
-		case '%':
-			length += ft_printchar('%');
-			break;
-		default:
-			break;
-	}
+	else if (c == 'X')
+		printf("afficher un chiffre hexadecimal majuscule");
+		//ft_printchar;
+	else if (c == '%')
+		length += ft_printchar('%');
+
 	va_end(ap);
 	return (length);
 }
