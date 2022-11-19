@@ -6,7 +6,7 @@
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 13:34:39 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/17 22:06:18 by hugur            ###   ########.fr       */
+/*   Updated: 2022/11/19 16:51:14 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int ft_format(va_list ap, const char c)
 		//ft_printpointer;//dois afficher un hexa
 	else if (c == 'u')
 		length += ft_treatunsigned(va_arg(ap, unsigned int));
-		
 		//length += ft_unsignedint(va_arg(ap, unsigned int));
 	else if (c == 'x')
 		printf("afficher un chiffre hexadecimal minuscule");

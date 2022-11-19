@@ -6,7 +6,7 @@
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 21:57:45 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/17 22:47:27 by hugur            ###   ########.fr       */
+/*   Updated: 2022/11/19 15:43:20 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int		ft_uitoalen(unsigned int nb)
 {
 	int		mem;
 
+	mem = 0;
 	if (nb == 0)
 		mem = 1;
 	else
@@ -32,28 +33,30 @@ int		ft_uitoalen(unsigned int nb)
 
 char	*ft_uitoa(unsigned int	nb)
 {
-	char			*s;
+	char			*str;
 	int				len;
 
 	len = ft_uitoalen(nb);
-	printf("len uitoa = %d", len);
-	s = malloc(sizeof(char) * len + 1);
-	if (!s)
+	str = malloc(sizeof(char) * len + 1);
+	if (!str)
 		return(NULL);
 	while (len-- > 0)
 	{
-		s[len] = nb % 10;
+		str[len] = nb % 10 + '0';
 		nb /= 10;
 	}
-	return(s);
+	return(str);
 }
 
 int		ft_treatunsigned(unsigned int	ui)
 {
 	char	*str;
-	
-	str = ft_uitoa(ui);
+	int		nb;
 
+	str = ft_uitoa(ui);
+	if (!str)
+		return(0);
+	nb = ft_printstring(str);
 	free(str);
-	return(0);
+	return(nb);
 }
