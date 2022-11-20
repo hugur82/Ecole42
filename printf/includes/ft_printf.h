@@ -9,5 +9,6 @@ int	ft_printint(int	nb);
 int	ft_printf(const char *str,...);
 int ft_format(va_list ap, const char c);
 int	ft_treatunsigned(unsigned int	ui);
-int    	ft_treathexa(unsigned int nb,const char c);
+int ft_treathexa(unsigned int nb,const char c);
+int	ft_printpointer(unsigned long long ul);
 #endif

@@ -6,14 +6,14 @@
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 13:34:39 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/20 01:18:09 by hugur            ###   ########.fr       */
+/*   Updated: 2022/11/20 15:33:40 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include "../includes/ft_printf.h"
 
-int ft_format(va_list ap, const char c)
+int	ft_format(va_list ap, const char c)
 {
 	int	length;
 
@@ -25,9 +25,7 @@ int ft_format(va_list ap, const char c)
 	else if (c == 'd' || c == 'i')
 		length += ft_printint(va_arg(ap, int));
 	else if (c == 'p')
-		printf("afficher un pointeur");
-		//length += ft_printpointer(va_arg(ap, char *));
-		//ft_printpointer;//dois afficher un hexa
+		length += ft_printpointer(va_arg(ap, unsigned long long));
 	else if (c == 'u')
 		length += ft_treatunsigned(va_arg(ap, unsigned int));
 	else if (c == 'x' || c == 'X')
