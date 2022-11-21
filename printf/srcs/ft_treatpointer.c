@@ -6,7 +6,7 @@
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 01:32:36 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/20 15:53:01 by hugur            ###   ########.fr       */
+/*   Updated: 2022/11/21 17:45:13 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 int	ft_ptrlen( unsigned long long ul)
 {
-	int count;
+	int	count;
 
 	count = 1;
-	while ( ul >= 16)
+	while (ul >= 16)
 	{
 		count++;
 		ul /= 16;

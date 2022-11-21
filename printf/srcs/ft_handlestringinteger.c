@@ -6,7 +6,7 @@
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 21:31:36 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/17 22:06:18 by hugur            ###   ########.fr       */
+/*   Updated: 2022/11/21 17:57:36 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_printstring(const char *str)
 	if (!str)
 		return (ft_printstring("(null)"));
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
 		ft_printchar(str[i]);
 		i++;
@@ -34,15 +34,13 @@ int	ft_printstring(const char *str)
 	return (i);
 }
 
-int	ft_printint(int	nb)
+int	ft_printint(int nb)
 {
 	char	*str;
 	int		strlen;
 
 	str = ft_itoa(nb);
-	//printf("test str %s",str);
 	strlen = ft_printstring(str);
 	free(str);
-
 	return (strlen);
 }

@@ -6,7 +6,7 @@
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:37:58 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/10 23:54:47 by hugur            ###   ########.fr       */
+/*   Updated: 2022/11/21 18:07:12 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	*ft_calloc(size_t count, size_t size);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
-size_t	ft_isblank(size_t c);
 int		ft_isdigit(int c);
 size_t	ft_isempty(char *str);
 int		ft_isprint(int c);
