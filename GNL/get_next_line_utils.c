@@ -6,7 +6,7 @@
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 21:22:20 by hugur             #+#    #+#             */
-/*   Updated: 2022/12/06 22:37:20 by hugur            ###   ########.fr       */
+/*   Updated: 2022/12/08 18:01:20 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	newstr = (char *)malloc(sizeof(*newstr) * strsize + 1);
 	if (!(newstr))
 		return (NULL);
-	while (s1[++j])
+	while (s1[++j] != '\0')
 		newstr[++i] = s1[j];
 	j = -1;
-	while (s2[++j])
+	while (s2[++j] != '\0')
 		newstr[++i] = s2[j];
 	newstr[++i] = '\0';
 	return (newstr);

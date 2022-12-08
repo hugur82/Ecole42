@@ -6,7 +6,7 @@
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 20:54:06 by hugur             #+#    #+#             */
-/*   Updated: 2022/12/07 22:50:40 by hugur            ###   ########.fr       */
+/*   Updated: 2022/12/08 18:16:47 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,17 @@
 #endif
 
 
-
-
-
-char	*ft_readfile(int fd, char *buffer)
+char	*ft_readfile(int fd)
 {
 	int	ret;
+	char	*buffer;
+	char	*tmp;
 	static char	*save;
-	int	size;
-	int	start;
-
-	size = 0;
-	start = 1;	
 	
-		buffer = malloc(sizeof(char) * BUFFER_SIZE +1);
+		printf("le save a l entree de la fonction: %s\n", save);
+		buffer = malloc(sizeof(char) * BUFFER_SIZE + 1);
+		if (!buffer)
+			return(0);
 		ret = read(fd, buffer, BUFFER_SIZE);
 		buffer[ret] = '\0';
 		if(ret == -1)
@@ -38,12 +35,24 @@ char	*ft_readfile(int fd, char *buffer)
 			free(buffer);
 			return (NULL);
 		}
-		size += BUFFER_SIZE;
-		save = malloc(sizeof(char) * size + 1);
-		save = ft_strjoin(save,buffer);
-		start = 0;
-	
-
+		if (!save)
+		{
+			save = malloc(sizeof(char) * ( BUFFER_SIZE + 1));
+			if (!save)
+				return (0);
+		}
+		else
+		{
+			save = malloc(sizeof(char) * ( ft_strlen(save) + BUFFER_SIZE + 1));
+			if (!save)
+				return (0);
+		}
+		tmp = ft_strjoin("",save);
+		printf("le save a la fin: %s\n", tmp);
+		
+		save  = ft_strjoin(tmp, buffer);
+		printf("le save a la fin: %s\n", save);
+		free(buffer);
 	return (save);
 }
 
@@ -54,9 +63,9 @@ char	*get_next_line(int fd)
 	
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
-	line = ft_readfile(fd, buffer);
-	
-	
+	ft_readfile(fd);
+	ft_readfile(fd);
+	line = ft_readfile(fd);
 	return (line);
 }
 
@@ -71,8 +80,6 @@ int	main(void)
 		ft_putstr("Open() fail");
 		return (1);
 	}
-	str = get_next_line(fd);
-	ft_putstr(str);
 	str = get_next_line(fd);
 	ft_putstr(str);
 	
