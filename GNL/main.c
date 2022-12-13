@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 20:51:04 by hugur             #+#    #+#             */
-/*   Updated: 2022/12/13 22:16:40 by hugur            ###   ########.fr       */
+/*   Created: 2022/12/13 21:27:02 by hugur             #+#    #+#             */
+/*   Updated: 2022/12/13 22:28:14 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
-# include <unistd.h>
-# include <stdlib.h>
+#include <stdio.h>
+#include "get_next_line.h"
 
-char	*get_next_line(int fd);
-void	ft_putstr(char *str);
-void	ft_putchar(char c);
-size_t	ft_strlen(const char *str);
-char	*ft_strjoin(char const *s1, char const *s2);
-char	*ft_strchr(const char *s, int c);
+int	main(void)
+{
+	int	fd;
+	char	*str;
 
-#endif
+	fd = open("text", O_RDONLY);
+	if (fd == -1)
+	{
+		ft_putstr("Open() fail");
+		return (1);
+	}
+	str = get_next_line(fd);
+    printf("resultat du main : ");
+	ft_putstr(str);
+	
+	if (close(fd) == -1)
+	{
+		ft_putstr("Close() fail");
+		return (1);
+	}
+	return (0);
+}

@@ -6,7 +6,7 @@
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 20:54:06 by hugur             #+#    #+#             */
-/*   Updated: 2022/12/08 18:16:47 by hugur            ###   ########.fr       */
+/*   Updated: 2022/12/13 22:35:12 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
 #endif
 
 
-char	*ft_readfile(int fd)
+char	*ft_readfile(int fd, int endofline[])
 {
 	int	ret;
 	char	*buffer;
-	char	*tmp;
 	static char	*save;
+
 	
 		printf("le save a l entree de la fonction: %s\n", save);
 		buffer = malloc(sizeof(char) * BUFFER_SIZE + 1);
@@ -35,6 +35,9 @@ char	*ft_readfile(int fd)
 			free(buffer);
 			return (NULL);
 		}
+		if(ft_strchr(buffer, '\n') != NULL)
+			endofline[1] = 1;
+
 		if (!save)
 		{
 			save = malloc(sizeof(char) * ( BUFFER_SIZE + 1));
@@ -47,46 +50,29 @@ char	*ft_readfile(int fd)
 			if (!save)
 				return (0);
 		}
-		tmp = ft_strjoin("",save);
-		printf("le save a la fin: %s\n", tmp);
-		
-		save  = ft_strjoin(tmp, buffer);
+		save = ft_strjoin(save,buffer);
 		printf("le save a la fin: %s\n", save);
+		
 		free(buffer);
 	return (save);
 }
 
 char	*get_next_line(int fd)
 {
-	char	*buffer;
+
 	static char	*line;
+	char	*tmp;
+	int	endofline[1];
 	
+	endofline[1] = 0;
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
-	ft_readfile(fd);
-	ft_readfile(fd);
-	line = ft_readfile(fd);
+	while (!endofline[1])
+	{
+		tmp = ft_readfile(fd, endofline);
+		line = ft_strjoin(line,tmp);
+		free(tmp);
+		printf("le line a la fin: %s\n", line);
+	}
 	return (line);
-}
-
-int	main(void)
-{
-	int	fd;
-	char	*str;
-
-	fd = open("text", O_RDONLY);
-	if (fd == -1)
-	{
-		ft_putstr("Open() fail");
-		return (1);
-	}
-	str = get_next_line(fd);
-	ft_putstr(str);
-	
-	if (close(fd) == -1)
-	{
-		ft_putstr("Close() fail");
-		return (1);
-	}
-	return (0);
 }
