@@ -6,73 +6,97 @@
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 20:54:06 by hugur             #+#    #+#             */
-/*   Updated: 2022/12/13 22:35:12 by hugur            ###   ########.fr       */
+/*   Updated: 2022/12/21 19:27:29 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "get_next_line.h"
-#ifndef	BUFFER_SIZE
-#define BUFFER_SIZE 5
-#endif
 
+char	*ft_line(char *str)
+{
+	int	i;
+	char	*tmp;
 
-char	*ft_readfile(int fd, int endofline[])
+	i = 0;
+	if(str[i] == '\0')
+		return (NULL);
+	
+	while(str[i] != '\n' && str[i] != '\0')
+		i++;
+	tmp = malloc(sizeof(char) * (i + 2));
+	if (!tmp)
+		return (NULL);
+	i = 0;
+	while (str[i] != '\n' && str[i] != '\0')
+	{
+		tmp[i] = str[i];
+		i++;
+	}
+	if (tmp[i] != '\0')
+		tmp[i] = '\0';
+	//printf("tmp dans ft_line = %s\n", tmp);
+	return (tmp);
+}
+
+char	*ft_next_line(char *str)
+{
+	int	i;
+	int	j;
+	char *tmp;
+
+	i = 0;
+	while(str[i] != '\n' && str[i] != '\0')
+		i++;
+	tmp = malloc(sizeof(char) * (ft_strlen(str) - i + 1));
+	j = 0;
+	while (str[++i] != '\0')
+	{
+		tmp[j] = str[i];
+		j++;
+	}
+	tmp[j] = '\0';
+	return (tmp);
+}
+
+char	*ft_readfile(int fd, char *str)
 {
 	int	ret;
-	char	*buffer;
-	static char	*save;
-
+	char	*buf;
 	
-		printf("le save a l entree de la fonction: %s\n", save);
-		buffer = malloc(sizeof(char) * BUFFER_SIZE + 1);
-		if (!buffer)
-			return(0);
-		ret = read(fd, buffer, BUFFER_SIZE);
-		buffer[ret] = '\0';
-		if(ret == -1)
-		{
-			free(buffer);
+	ret = 1;
+	
+	while(ft_strchr(str,'\n') == NULL && ret != 0)
+	{
+		buf = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+		if (buf == NULL)
 			return (NULL);
-		}
-		if(ft_strchr(buffer, '\n') != NULL)
-			endofline[1] = 1;
-
-		if (!save)
-		{
-			save = malloc(sizeof(char) * ( BUFFER_SIZE + 1));
-			if (!save)
-				return (0);
-		}
-		else
-		{
-			save = malloc(sizeof(char) * ( ft_strlen(save) + BUFFER_SIZE + 1));
-			if (!save)
-				return (0);
-		}
-		save = ft_strjoin(save,buffer);
-		printf("le save a la fin: %s\n", save);
-		
-		free(buffer);
-	return (save);
+		ret = read(fd, buf, BUFFER_SIZE);
+			if (ret == -1)
+			{
+				free (buf);
+				return (NULL);
+			}
+		buf[ret] = '\0';
+		str = ft_strjoin(str,buf);
+		free (buf);
+	}
+	return (str);
 }
 
 char	*get_next_line(int fd)
 {
-
-	static char	*line;
-	char	*tmp;
-	int	endofline[1];
+	static char *str;
+	char	*line;
 	
-	endofline[1] = 0;
-	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (0);
-	while (!endofline[1])
-	{
-		tmp = ft_readfile(fd, endofline);
-		line = ft_strjoin(line,tmp);
-		free(tmp);
-		printf("le line a la fin: %s\n", line);
-	}
-	return (line);
+	if (BUFFER_SIZE <= 0 || fd < 0)
+		return (NULL);
+	if (!str)
+		str = ft_strdup("");
+	//printf("str dans GNL avant fonction %s\n", str);
+	str = ft_readfile(fd, str);
+	//printf("str dans GNL après fonction %s\n", str);
+	line = ft_line(str);
+	str = ft_next_line(str);
+	return(line);
 }

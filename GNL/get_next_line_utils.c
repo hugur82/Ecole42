@@ -6,7 +6,7 @@
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 21:22:20 by hugur             #+#    #+#             */
-/*   Updated: 2022/12/13 22:16:40 by hugur            ###   ########.fr       */
+/*   Updated: 2022/12/21 17:35:49 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,22 @@ char	*ft_strchr(const char *s, int c)
 	if (s[i] == (char)c)
 		return ((char *)s + i);
 	return (NULL);
+}
+
+char	*ft_strdup(const char *s1)
+{
+	char	*ptr;
+	size_t	i;
+
+	ptr = malloc(sizeof(char) * ft_strlen(s1) + 1);
+	if (!(ptr))
+		return (NULL);
+	i = 0;
+	while (s1[i])
+	{
+		ptr[i] = s1[i];
+		i++;
+	}
+	ptr[i] = '\0';
+	return (ptr);
 }

@@ -27,13 +27,13 @@ clean:
 	rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME) test
+	rm -f $(NAME) test *.out
 
 re: fclean all
 
 main: $(NAME)
-	$(CC) -o test main.c $(NAME)
+	$(CC) $(FLAGS) -o test main.c $(NAME)
 
 .PHONY:
-	all clean fclean re
+	all clean fclean re main
 

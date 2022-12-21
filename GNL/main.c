@@ -6,7 +6,7 @@
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 21:27:02 by hugur             #+#    #+#             */
-/*   Updated: 2022/12/13 22:28:14 by hugur            ###   ########.fr       */
+/*   Updated: 2022/12/21 19:24:41 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int	main(void)
 {
 	int	fd;
-	char	*str;
+	
 
 	fd = open("text", O_RDONLY);
 	if (fd == -1)
@@ -24,9 +24,16 @@ int	main(void)
 		ft_putstr("Open() fail");
 		return (1);
 	}
-	str = get_next_line(fd);
-    printf("resultat du main : ");
-	ft_putstr(str);
+	
+	
+    printf("\n----------------------\nresultat du main : \n%s\n----------------------\n\n",get_next_line(fd));
+    printf("\n----------------------\nresultat du main : \n%s\n----------------------\n\n",get_next_line(fd));
+    printf("\n----------------------\nresultat du main : \n%s\n----------------------\n\n",get_next_line(fd));
+    printf("\n----------------------\nresultat du main : \n%s\n----------------------\n\n",get_next_line(fd));
+    printf("\n----------------------\nresultat du main : \n%s\n----------------------\n\n",get_next_line(fd));
+    printf("\n----------------------\nresultat du main : \n%s\n----------------------\n\n",get_next_line(fd));
+    printf("\n----------------------\nresultat du main : \n%s\n----------------------\n\n",get_next_line(fd));
+   
 	
 	if (close(fd) == -1)
 	{
