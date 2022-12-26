@@ -6,7 +6,7 @@
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 21:27:02 by hugur             #+#    #+#             */
-/*   Updated: 2022/12/26 16:32:59 by hugur            ###   ########.fr       */
+/*   Updated: 2022/12/26 18:20:40 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ int    main(void)
 {
     int    fd;
 
-    printf("\n\n- - - - - - - next file n1 - - - - - - \n\n");
-    fd = open("text", O_RDONLY);
+    printf("\n\n- - - - - - - next file 1char - - - - - - \n\n");
+    fd = open("1char.txt", O_RDONLY);
     for (int i = 0; i < 4; i++)
     {
         printf("\n-- FILE LINES --\n");
@@ -58,8 +58,16 @@ int    main(void)
         printf("--- Line #%d: ->%s<-\n", i + 1, get_next_line(fd));
 
     }
-    printf("\n\n- - - - - - - next file n3: emptyFile - - - - - - -\n\n");
-    fd = open("41_no_nl", O_RDONLY);
+    printf("\n\n- - - - - - - next file n3: text - - - - - - -\n\n");
+    fd = open("text", O_RDONLY);
+    for (int i = 0; i < 4; i++)
+    {
+        printf("\n-- FILE LINES --\n");
+        printf("--- Line #%d: ->%s<-\n", i + 1, get_next_line(fd));
+
+    }
+    printf("\n\n- - - - - - - next file n4: 1char.txt - - - - - - -\n\n");
+    fd = open("1char.txt", O_RDONLY);
     for (int i = 0; i < 4; i++)
     {
         printf("\n-- FILE LINES --\n");

@@ -6,7 +6,7 @@
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 21:22:20 by hugur             #+#    #+#             */
-/*   Updated: 2022/12/26 16:10:36 by hugur            ###   ########.fr       */
+/*   Updated: 2022/12/26 17:27:22 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlen(const char *str)
 	size_t	i;
 
 	i = 0;
-	if (!str[i])
+	if (!str)
 	{
 		free ((char *)str);
 		return (0);
