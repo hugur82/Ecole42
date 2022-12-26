@@ -6,7 +6,7 @@
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 20:54:06 by hugur             #+#    #+#             */
-/*   Updated: 2022/12/26 19:09:08 by hugur            ###   ########.fr       */
+/*   Updated: 2022/12/26 19:21:19 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ char	*ft_next_line(char *str)
 		free(str);
 		return (0);
 	}
-	tmp = malloc(sizeof(char) * (ft_strlen(str) - i + 2));
+	tmp = malloc(sizeof(char) * (ft_strlen(str) - i + 1));
 	if (!tmp)
 		return (NULL);
 	j = 0;
