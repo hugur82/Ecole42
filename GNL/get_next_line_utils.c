@@ -6,7 +6,7 @@
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 21:22:20 by hugur             #+#    #+#             */
-/*   Updated: 2022/12/21 17:35:49 by hugur            ###   ########.fr       */
+/*   Updated: 2022/12/26 16:10:36 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ size_t	ft_strlen(const char *str)
 	size_t	i;
 
 	i = 0;
+	if (!str[i])
+	{
+		free ((char *)str);
+		return (0);
+	}
 	while (*str)
 	{
 		str++;
@@ -67,6 +72,8 @@ char	*ft_strchr(const char *s, int c)
 	int	i;
 
 	i = 0;
+	if (!s[i])
+		return (NULL);
 	while (s[i])
 	{
 		if (s[i] == (char)c)
@@ -94,4 +101,43 @@ char	*ft_strdup(const char *s1)
 	}
 	ptr[i] = '\0';
 	return (ptr);
+}
+
+void	ft_bzero(void *s, size_t n)
+{
+	unsigned char	*p;
+
+	p = s;
+	while (n)
+	{
+		*p++ = 0;
+		n--;
+	}
+}
+
+void	*ft_calloc(size_t	count, size_t	size)
+{
+	void	*ptr;
+
+	ptr = malloc(count * size);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, size * count);
+	return (ptr);
+}
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+{
+	size_t	i;
+
+	if (dstsize == 0 || !dst)
+		return (ft_strlen(src));
+	i = 0;
+	while ((src[i] != 0) && (i < dstsize - 1))
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (ft_strlen(src));
 }

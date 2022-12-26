@@ -6,7 +6,7 @@
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 20:51:04 by hugur             #+#    #+#             */
-/*   Updated: 2022/12/21 17:35:56 by hugur            ###   ########.fr       */
+/*   Updated: 2022/12/26 15:54:46 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,8 @@ size_t	ft_strlen(const char *str);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s1);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+void	ft_bzero(void *s, size_t n);
+void	*ft_calloc(size_t	count, size_t	size);
 
 #endif

@@ -6,39 +6,65 @@
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 21:27:02 by hugur             #+#    #+#             */
-/*   Updated: 2022/12/21 19:24:41 by hugur            ###   ########.fr       */
+/*   Updated: 2022/12/26 16:32:59 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "get_next_line.h"
 
-int	main(void)
-{
-	int	fd;
+// int	main(void)
+// {
+// 	int	fd;
 	
 
-	fd = open("text", O_RDONLY);
-	if (fd == -1)
-	{
-		ft_putstr("Open() fail");
-		return (1);
-	}
+// 	fd = open("text", O_RDONLY);
+// 	if (fd == -1)
+// 	{
+// 		ft_putstr("Open() fail");
+// 		return (1);
+// 	}
 	
 	
-    printf("\n----------------------\nresultat du main : \n%s\n----------------------\n\n",get_next_line(fd));
-    printf("\n----------------------\nresultat du main : \n%s\n----------------------\n\n",get_next_line(fd));
-    printf("\n----------------------\nresultat du main : \n%s\n----------------------\n\n",get_next_line(fd));
-    printf("\n----------------------\nresultat du main : \n%s\n----------------------\n\n",get_next_line(fd));
-    printf("\n----------------------\nresultat du main : \n%s\n----------------------\n\n",get_next_line(fd));
-    printf("\n----------------------\nresultat du main : \n%s\n----------------------\n\n",get_next_line(fd));
-    printf("\n----------------------\nresultat du main : \n%s\n----------------------\n\n",get_next_line(fd));
+//     printf("%s\n",get_next_line(fd));
+//     printf("%s\n",get_next_line(fd));
+//     printf("%s\n",get_next_line(fd));
+    
    
 	
-	if (close(fd) == -1)
-	{
-		ft_putstr("Close() fail");
-		return (1);
-	}
-	return (0);
+// 	if (close(fd) == -1)
+// 	{
+// 		ft_putstr("Close() fail");
+// 		return (1);
+// 	}
+// 	return (0);
+// }
+int    main(void)
+{
+    int    fd;
+
+    printf("\n\n- - - - - - - next file n1 - - - - - - \n\n");
+    fd = open("text", O_RDONLY);
+    for (int i = 0; i < 4; i++)
+    {
+        printf("\n-- FILE LINES --\n");
+        printf("--- Line #%d: ->%s<-\n", i + 1, get_next_line(fd));
+    }
+    printf("\n\n- - - - - - next file n2: multiple_nlx5 - - - - - -\n\n");
+    fd = open("multiple_nlx5", O_RDONLY);
+    for (int i = 0; i < 4; i++)
+    {
+        printf("\n-- FILE LINES --\n");
+        printf("--- Line #%d: ->%s<-\n", i + 1, get_next_line(fd));
+
+    }
+    printf("\n\n- - - - - - - next file n3: emptyFile - - - - - - -\n\n");
+    fd = open("41_no_nl", O_RDONLY);
+    for (int i = 0; i < 4; i++)
+    {
+        printf("\n-- FILE LINES --\n");
+        printf("--- Line #%d: ->%s<-\n", i + 1, get_next_line(fd));
+
+    }
+    return (0);
 }

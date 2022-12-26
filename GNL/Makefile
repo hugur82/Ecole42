@@ -34,6 +34,16 @@ re: fclean all
 main: $(NAME)
 	$(CC) $(FLAGS) -o test main.c $(NAME)
 
+
+main1: $(NAME)
+	$(CC) $(FLAGS) -o test main.c $(NAME) -D BUFFER_SIZE=1
+
+main10: $(NAME)
+	$(CC) $(FLAGS) -o test main.c $(NAME) -D BUFFER_SIZE=10
+
+main1000000: $(NAME)
+	$(CC) $(FLAGS) -o test main.c $(NAME) -D BUFFER_SIZE=1000000
+
 .PHONY:
 	all clean fclean re main
 
