@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 18:01:22 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/21 18:05:03 by hugur            ###   ########.fr       */
+/*   Created: 2022/11/21 17:40:11 by hugur             #+#    #+#             */
+/*   Updated: 2022/11/21 17:42:49 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
-{
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-		return (1);
-	return (0);
-}
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
+
+# include <stdarg.h>
+# include <unistd.h>
+
+int	ft_printchar(int c);
+int	ft_printstring(const char *str);
+int	ft_printint(int nb);
+int	ft_printf(const char *str, ...);
+int	ft_format(va_list ap, const char c);
+int	ft_treatunsigned(unsigned int ui);
+int	ft_treathexa(unsigned int nb, const char c);
+int	ft_printpointer(unsigned long long ul);
+#endif

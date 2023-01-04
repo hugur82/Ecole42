@@ -1,31 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_handlestringinteger.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/02 15:56:39 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/12 22:08:03 by hugur            ###   ########.fr       */
+/*   Created: 2022/11/15 21:31:36 by hugur             #+#    #+#             */
+/*   Updated: 2022/11/21 17:57:36 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft/libft.h"
+#include "../includes/ft_printf.h"
 
-char	*ft_strdup(const char *s1)
+int	ft_printchar(int c)
 {
-	char	*ptr;
-	size_t	i;
+	write (1, &c, 1);
+	return (1);
+}
 
-	ptr = malloc(sizeof(char) * ft_strlen(s1) + 1);
-	if (!(ptr))
-		return (NULL);
+int	ft_printstring(const char *str)
+{
+	int	i;
+
+	if (!str)
+		return (ft_printstring("(null)"));
 	i = 0;
-	while (s1[i])
+	while (str[i])
 	{
-		ptr[i] = s1[i];
+		ft_printchar(str[i]);
 		i++;
 	}
-	ptr[i] = '\0';
-	return (ptr);
+	return (i);
+}
+
+int	ft_printint(int nb)
+{
+	char	*str;
+	int		strlen;
+
+	str = ft_itoa(nb);
+	strlen = ft_printstring(str);
+	free(str);
+	return (strlen);
 }

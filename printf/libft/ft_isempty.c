@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_isempty.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hugur <hugur@42lausanne.ch>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 18:01:22 by hugur             #+#    #+#             */
-/*   Updated: 2022/11/21 18:05:03 by hugur            ###   ########.fr       */
+/*   Created: 2022/11/02 11:35:16 by hugur             #+#    #+#             */
+/*   Updated: 2022/11/04 10:54:53 by hugur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+#include "libft.h"
+
+size_t	ft_isempty(char *str)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-		return (1);
-	return (0);
+	size_t	id;
+
+id = 0;
+	while (str[id])
+	{
+		if (!(str[id] == '\t' || str[id] == '\n' || str[id] == '\v'
+				|| str[id] == '\f' || str[id] == '\r' || str[id] == ' '
+				|| str[id] == '\a'))
+			return (0);
+		id++;
+	}
+	return (1);
 }
